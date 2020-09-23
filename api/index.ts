@@ -2,9 +2,9 @@
  * Server index script
  */
 import * as express from 'express';
+import * as bodyParser from 'body-parser';
+import * as cookieParser from 'cookie-parser';
 const app = express.default();
-// const bodyParser   = require("body-parser");
-// const cookieParser = require("cookie-parser");
 
 app.get('/test', (req: express.Request, res: express.Response) => {
   console.log('Test request logged')
@@ -56,19 +56,21 @@ app.get('/test', (req: express.Request, res: express.Response) => {
 /**
  * bodyParser and native express JSON parsers
  */
-// app.use(bodyParser.json());
-// app.use(express.json());
-// app.use(cookieParser());
+app.use(bodyParser.json());
+app.use(express.json());
+app.use(cookieParser.default());
 
 /**
  * Require API routes
  */
-// const routeAuth = require('./routes/auth');
+const routeAuth = require('./routes/auth');
+// const routeDB   = require('./routes/db');
 
 /**
  * Import API Routes
  */
-// app.use('/auth', routeAuth(app));
+app.use('/auth', routeAuth(app));
+// app.use('/db', routeDB(app));
 
 /**
  * Export express app

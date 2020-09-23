@@ -47,7 +47,7 @@ export default {
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
-    baseURL: 'localhost:3000/api'
+    baseURL: 'http://localhost:3000/api'
   },
 
   // Content module configuration (https://go.nuxtjs.dev/content-config)
@@ -61,8 +61,7 @@ export default {
   auth: {
     cookie: {
       options: {
-        expires: 365,
-        secure:  true
+        expires: 365
       }
     },
     resetOnError: true,
@@ -83,7 +82,7 @@ export default {
           user: {
             url:          '/auth/me',
             method:       'GET',
-            propertyName: 'user'
+            propertyName: 'token'
           }
         },
         tokenRequired: true

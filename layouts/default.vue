@@ -1,7 +1,8 @@
 <template>
   <v-app>
     <v-app-bar fixed app>
-
+      <v-spacer/>
+      <v-btn v-if="$auth.loggedIn" @click="$auth.logout('local')">Logout</v-btn>
     </v-app-bar>
     <v-main>
       <v-container>
