@@ -42,10 +42,13 @@ export default {
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
+    '@nuxtjs/auth'
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
+  axios: {
+    baseURL: 'localhost:3000/api'
+  },
 
   // Content module configuration (https://go.nuxtjs.dev/content-config)
   content: {},
@@ -53,6 +56,39 @@ export default {
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {
     customVariables: ['~/assets/variables.scss']
+  },
+
+  auth: {
+    cookie: {
+      options: {
+        expires: 365,
+        secure:  true
+      }
+    },
+    resetOnError: true,
+    redirect: {
+      login:  '/admin/login',
+      home:   '/admin',
+      logout: '/'
+    },
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url:          '/auth/login',
+            method:       'post',
+            propertyName: 'token'
+          },
+          logout: false,
+          user: {
+            url:          '/auth/me',
+            method:       'GET',
+            propertyName: 'user'
+          }
+        },
+        tokenRequired: true
+      },
+    },
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)

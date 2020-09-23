@@ -19,6 +19,8 @@ interface ITable {
 export default {
   name: "index",
 
+  middleware: ['auth'],
+
   async asyncData() {
     const placeholderData = [
       {
