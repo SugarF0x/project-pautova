@@ -1,6 +1,9 @@
 import colors from 'vuetify/es5/util/colors'
 
-export default {
+process.env.HOST = 'localhost'
+process.env.PORT = '3000'
+
+const config = {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     titleTemplate: '%s - pautova',
@@ -47,7 +50,7 @@ export default {
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
-    baseURL: 'http://localhost:3000/api'
+    baseURL: `http://${process.env.HOST}:${process.env.PORT}/api`
   },
 
   // Content module configuration (https://go.nuxtjs.dev/content-config)
@@ -97,5 +100,11 @@ export default {
   },
   serverMiddleware: {
     '/api': '~/api'
+  },
+  server: {
+    host: process.env.HOST,
+    port: process.env.PORT
   }
 }
+
+export default config;

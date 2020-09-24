@@ -69,12 +69,14 @@ myaxios.interceptors.response.use(
 export default Vue.extend({
   name: 'home',
 
-  async asyncData() {
-    return myaxios.get(`http://localhost:3000/api/content/staff`)
-      .then(res => {
-        return { masters: res }
-      }
-    )
-  }
+  async asyncData(context) {
+    try {
+      const masters = await context.app.$axios.$get(`/content/staff`);
+      if (!masters) context.error({ statusCode: 500, message: 'Woops, something wen wrong on the server 1!' })
+      return { masters }
+    } catch (err) {
+      context.error({ statusCode: 500, message: err })
+    }
+  },
 })
 </script>
