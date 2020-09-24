@@ -1,5 +1,5 @@
 ---
-title: Placeholder Master
+title: Placeholder Master 1
 description: 'Get started with this amazing Placeholder Master'
 ---
 
