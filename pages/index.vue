@@ -20,7 +20,7 @@
             <v-row>
               <v-col v-for="(n, i) in masters"
                      :key="n.slug"
-                     class="d-flex child-flex"
+                     class="d-flex child-flex master"
                      cols="12"
                        sm="6"
                        md="4"
@@ -84,6 +84,12 @@ export default Vue.extend({
   .masters {
     .v-card {
       position: relative;
+    }
+    .master:active, .master:hover {
+      .v-card__text {
+        background-color: rgba(0,0,0,.7);
+        color: white;
+      }
     }
     .v-card__text {
       position: absolute;
