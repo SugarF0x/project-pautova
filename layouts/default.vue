@@ -11,6 +11,11 @@
     </v-main>
     <v-footer app absolute>
       <span>&copy; {{ new Date().getFullYear() }}</span>
+      <v-spacer/>
+      <span>
+        Provided by
+        <v-btn text href="https://github.com/SugarF0x">Sugar_F0x</v-btn>
+      </span>
     </v-footer>
   </v-app>
 </template>
