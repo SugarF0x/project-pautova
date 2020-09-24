@@ -15,7 +15,10 @@
       <v-spacer/>
       <span>
         Provided by
-        <v-btn text href="https://github.com/SugarF0x">Sugar_F0x</v-btn>
+        <v-btn href="https://github.com/SugarF0x" class="gitlink">
+          <v-icon left>mdi-github</v-icon>
+          Sugar_F0x
+        </v-btn>
       </span>
     </v-footer>
   </v-app>
@@ -26,3 +29,9 @@ export default {
 
 }
 </script>
+
+<style lang="less" scoped>
+  .gitlink {
+    margin-left: .5rem;
+  }
+</style>
