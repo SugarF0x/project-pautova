@@ -21,7 +21,9 @@
               <v-col v-for="(n, i) in masters"
                      :key="n.slug"
                      class="d-flex child-flex"
-                     cols="4"
+                     cols="12"
+                       sm="6"
+                       md="4"
               >
                 <v-hover v-slot:default="{ hover }">
                   <v-card flat
