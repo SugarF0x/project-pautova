@@ -4,7 +4,7 @@
 
 <script lang="ts">
 export default {
-  name: "_master",
+  name: "master",
 
   async asyncData({ error, $content, params }) {
     try {
