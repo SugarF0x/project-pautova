@@ -53,18 +53,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import axios from 'axios'
-const myaxios = axios.create({
-  // ...
-})
-myaxios.interceptors.response.use(
-  function (response) {
-    return response.data
-  },
-  function (error) {
-    // ...
-  }
-)
 
 export default Vue.extend({
   name: 'home',
