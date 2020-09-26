@@ -3,6 +3,7 @@
     <v-app-bar fixed short app class="bar">
       <v-btn @click="$router.push('/')">here be logo</v-btn>
       <v-spacer/>
+      <v-btn v-if="$auth.loggedIn" @click="$router.push('/admin')">Admin</v-btn>
       <v-btn v-if="$auth.loggedIn" @click="$auth.logout('local')">Logout</v-btn>
     </v-app-bar>
     <v-main>
@@ -33,5 +34,10 @@ export default {
 <style lang="less" scoped>
   .gitlink {
     margin-left: .5rem;
+  }
+  .bar {
+    button {
+      margin: 0 .2rem;
+    }
   }
 </style>
