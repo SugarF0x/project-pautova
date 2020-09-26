@@ -6,10 +6,12 @@ const SECRET   = 'fuck-me-jerry';
 
 module.exports = (app) => {
   router.use(async (req,res,next) => {
-    req["access"] = true;
+    req["access"] = false;
     let token = '';
     if (req.cookies["auth._token.local"] && req.cookies["auth._token.local"].split(' ')[0] === 'Bearer') {
       token = req.cookies["auth._token.local"].split(' ')[1];
+    } else if (req.headers && req.headers.authorization) {
+      token = req.headers.authorization.split(' ')[1];
     }
 
     if (token !== '') {
